@@ -71,7 +71,7 @@ console.log (pizza.tags[1])
 
 //CODE HERE
 const {price} = pizza;
-console.log (pizza.price)
+console.log (price)
 /*
     Fourth, and last, destructure the category
     property.
@@ -81,7 +81,7 @@ console.log (pizza.price)
 
 //CODE HERE
 const {category}=pizza;
-console.log(pizza.category)
+console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -128,7 +128,7 @@ let soda = {
     rating: 90,
     tags: [`extra greasy`,`Not Gluten free`,`extra meat`,`not friendly`]
   }
-  foodArr = [pizza,calzone,icecream,sandwich,soda]
+  let foodArr = [pizza,calzone,icecream,sandwich,soda]
 //////////////////PROBLEM 4////////////////////
 /* 
     Let's filter the food objects according
@@ -142,12 +142,23 @@ let soda = {
 */
 
 //CODE HERE
-const filteredFood = (foodArr,cb)=>(foodArr[3])
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+// const getFoodByTag=(foodObj,currentIndex,array)=>{
+   
+//      const isTagIncluded = foodObj.tags.indcludes('family favorite')
+//      return isTagIncluded
+//  }
+ 
+//  const filterByProperty=foodArr.filter(getFoodByTag)
+//  console.log(filteredFood)
 
-filteredFood(foodArr,foodTags =>{
-console.log(`This food is `+ foodTags)
-} )
+
+
+// const filteredFood = (foodArr,cb)=>(foodArr[3])
+const filteredFood = foodArr.filter((foodItem)=>foodItem.tags.includes('extra meat'))
+console.log(filteredFood)
+// filteredFood(foodArr,foodTags =>{
+// console.log(`This food is `+ foodTags)
+// } )
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -189,8 +200,23 @@ console.log(`This food is `+ foodTags)
 */
 
 //CODE HERE
-const filterByProperty=foodArr.filter(Popularity,Number,price => Popularity,Number,price)
-
+const filterByProperty=(property,number,type) =>{
+    const filteredArray = foodArr.filter((food,index,array)=> {
+    //    const isAbove = type === 'above'
+    //    const value = food[property]
+        if(type === 'above'){
+            if(food[property]>number){
+                return food
+            }
+        }else{
+            if (food[property]<number){
+                return food
+            }
+        }
+    })
+    return filteredArray
+}
+console.log(filterByProperty(price,5,below))
 /*
     Invoke the `filterByProperty` function passing
     in a value for each paramter.

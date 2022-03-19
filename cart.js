@@ -35,9 +35,20 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-const summedPrice = cart.reduce((acc,curr) => acc+curr)
+const summedPrice = cart.reduce((acc,curr)=>acc.curr.price,0)
+
+
+
+// const summedPrice=cart.reduce((acc, currentValue,currentIndex,array)=>{
+//     const newTotal= acc += currentValue.price
+
+//     return newTotal
+// },
+// 0
+// )
 console.log(summedPrice)
+// const summedPrice = cart.reduce((acc,curr) => acc+curr)
+// console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -55,10 +66,20 @@ console.log(summedPrice)
 */
 
 //CODE HERE
-function calcFinalPrice (cartTotal,couponValue,tax){
-return (cartTotal * tax - couponValue)
+const calcFinalPrice=(cartTotal, couponValue, tax)=>{
+    const taxAmount = cartTotal * tax
+    const cartTotalWithTax=cartTotal + taxAmount
+    const newCartTotal = cartTotalWithTax - couponValue
+
+    return newCartTotal
 }
-calcFinalPrice (26.97 * 0.06 - 0)
+const cartTotal = calcFinalPrice(10,2,0.06)
+
+console.log({cartTotal})
+// function calcFinalPrice (cartTotal,couponValue,tax){
+// return (cartTotal * tax - couponValue)
+// }
+// calcFinalPrice (26.97 * 0.06 - 0)
 
 
 //////////////////PROBLEM 3////////////////////
